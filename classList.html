@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style media="screen">
+      .bg{
+        width:200px;
+        height:100px;
+        background:red;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <button type="button" name="button" class="add">添加类名</button>
+    <button type="button" name="button" class="remove">移除类名</button>
+    <button type="button" name="button" class="toggle">切换类名</button>
+    <button type="button" name="button" class="contains">是否包含类名</button>
+    <script type="text/javascript">
+      let oDiv = document.querySelector('div');
+      let oAdd = document.querySelector('.add');
+      let oRemove = document.querySelector('.remove');
+      let oToggle = document.querySelector('.toggle');
+      let oContains = document.querySelector('.contains');
+
+      oAdd.onclick=()=>{
+        oDiv.classList.add("bg");
+      }
+      oRemove.onclick=()=>{
+        oDiv.classList.remove("bg");
+      }
+      oToggle.onclick=()=>{
+        oDiv.classList.toggle("bg");
+      }
+      oContains.onclick=()=>{
+        console.log(oDiv.classList.contains("bg"));
+      }
+    </script>
+  </body>
+</html>

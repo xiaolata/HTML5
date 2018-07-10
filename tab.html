@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>自定义属性的选项卡</title>
+    <style media="screen">
+    *{
+      margin:0;
+      padding:0;
+    }
+      .container{
+        margin:100px auto;
+        width:400px;
+        height:300px;
+      }
+      .title li{
+        list-style: none;
+        float:left;
+        background: #ccc;
+        text-align: center;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+      }
+      .content{
+        width:400px;
+        height:270px;
+        background: #eee;
+      }
+      li.active{
+      background:red;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <ul class="title">
+        <li data-title="one" class="active">1</li>
+        <li data-title="two">2</li>
+        <li data-title="three">3</li>
+        <li data-title="four">4</li>
+      </ul>
+      <div class="content">
+        <div id="one">111</div>
+        <div id="two" style="display:none;">222</div>
+        <div id="three" style="display:none;">333</div>
+        <div id="four" style="display:none;">444</div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      let aLi = document.querySelectorAll("li");
+      for(let i=0; i<aLi.length; i++){
+        aLi[i].onclick=function(){
+          let oSelect = document.querySelector(".active");
+          oSelect.classList.remove("active");
+          document.getElementById(oSelect.dataset["title"]).style.display = 'none';
+          this.classList.add("active");
+          let val = this.dataset["title"];
+          document.getElementById(val).style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>
